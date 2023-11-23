@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="530.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.MenuDoctorController">
+   <children>
+      <ImageView fitHeight="547.0" fitWidth="694.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pngtree-minimalist-gradient-medical-background-picture-image_966366%20(1).jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="77.0" layoutY="86.0" prefHeight="27.0" prefWidth="408.0" text="Please, select the test you want to consult:" textFill="#0e016f">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="testTable" layoutX="40.0" layoutY="154.0" prefHeight="270.0" prefWidth="614.0">
+         <columns>
+            <TableColumn fx:id="dateTest" prefWidth="190.0" text="Date" />
+            <TableColumn fx:id="signalCol" prefWidth="182.39996337890625" text="Type" />
+            <TableColumn fx:id="freqCol" prefWidth="179.199951171875" text="Frequency" />
+            <TableColumn fx:id="idCol" prefWidth="64.800048828125" text="Id" />
+         </columns>
+      </TableView>
+      <Button fx:id="seeTestButton" layoutX="252.0" layoutY="446.0" mnemonicParsing="false" onAction="#seeTestButtonPushed" prefHeight="24.0" prefWidth="190.0" text="Check Test">
+         <effect>
+            <Blend mode="BLUE">
+               <topInput>
+                  <Bloom />
+               </topInput>
+            </Blend>
+         </effect>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="back_button" layoutX="536.0" layoutY="55.0" mnemonicParsing="false" onAction="#back_button" prefHeight="30.0" prefWidth="129.0" text="Back" textFill="#f00e0e">
+         <effect>
+            <Blend mode="RED">
+               <topInput>
+                  <Bloom />
+               </topInput>
+            </Blend>
+         </effect>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

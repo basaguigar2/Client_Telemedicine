@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.LogInController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="606.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pngtree-minimalist-gradient-medical-background-picture-image_966366.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="usernamelogin" layoutX="72.0" layoutY="134.0" prefHeight="25.0" prefWidth="181.0" promptText="Username" />
+      <ImageView fitHeight="196.0" fitWidth="229.0" layoutX="315.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/2287797.png" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="passwordlogin" layoutX="72.0" layoutY="175.0" prefHeight="25.0" prefWidth="181.0" promptText="Password" />
+      <Text fill="#0259a4" layoutX="50.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to InhalApp">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#0259a4" layoutX="50.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please introduce your username and password">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="loginbutton" layoutX="72.0" layoutY="225.0" mnemonicParsing="false" onAction="#login_User" prefHeight="18.0" prefWidth="182.0" text="Log In" textFill="#03407e">
+         <effect>
+            <Blend mode="BLUE">
+               <topInput>
+                  <Bloom threshold="0.0" />
+               </topInput>
+            </Blend>
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button fx:id="register_no_log_in" layoutX="108.0" layoutY="259.0" mnemonicParsing="false" onAction="#go_ToRegister" prefHeight="26.0" prefWidth="109.0" text="Register?" textFill="#03407e">
+         <effect>
+            <Blend mode="BLUE">
+               <topInput>
+                  <Bloom threshold="0.0" />
+               </topInput>
+            </Blend>
+         </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+   </children>
+</AnchorPane>

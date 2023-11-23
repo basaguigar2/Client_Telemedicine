@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="sqlite-jdbc-3.8.7.jar"/>
+	<classpathentry kind="lib" path="eclipselink-2.7.7.jar"/>
+	<classpathentry kind="lib" path="javax.persistence_2.1.1.v201509150925.jar"/>
+	<classpathentry kind="lib" path="jaxb-impl-2.3.1.jar"/>
+	<classpathentry kind="lib" path="jaxb-api-2.3.1.jar"/>
+	<classpathentry kind="lib" path="istack-commons-runtime-3.0.7.jar"/>
+	<classpathentry kind="lib" path="javax.activation-api-1.2.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="530.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.MenuUserController">
+   <children>
+      <ImageView fitHeight="547.0" fitWidth="694.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pngtree-minimalist-gradient-medical-background-picture-image_966366%20(1).jpg" />
+         </image>
+      </ImageView>
+      <TabPane fx:id="TabPane" prefHeight="530.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="ListTests" text="Show list of my tests">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="630.0">
+                     <children>
+                        <Label layoutX="89.0" layoutY="64.0" prefHeight="27.0" prefWidth="408.0" text="Please, select the test you want to consult:" textFill="#0e016f">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="testTable" layoutX="47.0" layoutY="115.0" prefHeight="270.0" prefWidth="614.0">
+                          <columns>
+                            <TableColumn fx:id="dateTest" prefWidth="190.0" text="Date" />
+                            <TableColumn fx:id="signalCol" prefWidth="182.39996337890625" text="Type" />
+                              <TableColumn fx:id="freqCol" prefWidth="179.199951171875" text="Frequency" />
+                              <TableColumn fx:id="idCol" prefWidth="64.800048828125" text="Id" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="seeTestButton" layoutX="259.0" layoutY="400.0" mnemonicParsing="false" onAction="#seeTestButtonPushed" prefHeight="24.0" prefWidth="190.0" text="Check Test">
+                           <effect>
+                              <Blend mode="BLUE">
+                                 <topInput>
+                                    <Bloom />
+                                 </topInput>
+                              </Blend>
+                           </effect>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="log_outButton" layoutX="531.0" layoutY="14.0" mnemonicParsing="false" onAction="#log_out" prefHeight="30.0" prefWidth="129.0" text="Log out" textFill="#f00e0e">
+                           <effect>
+                              <Blend mode="RED">
+                                 <topInput>
+                                    <Bloom />
+                                 </topInput>
+                              </Blend>
+                           </effect>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="AddTest" text="Introduce new test">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="388.0" prefWidth="630.0">
+                     <children>
+                        <Pane fx:id="addPatient_pane" layoutX="6.0" layoutY="6.0" prefHeight="466.0" prefWidth="682.0">
+                           <children>
+                              <Button fx:id="addTestButton" layoutX="492.0" layoutY="423.0" mnemonicParsing="false" onAction="#addTestButtonPushed" prefHeight="12.0" prefWidth="162.0" text="Start Test">
+                                 <effect>
+                                    <Blend mode="BLUE">
+                                       <topInput>
+                                          <Bloom />
+                                       </topInput>
+                                    </Blend>
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Button>
+                              <RadioButton fx:id="ecg_S" layoutX="307.0" layoutY="91.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="183.0" text="ECG">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="emg_S" layoutX="129.0" layoutY="90.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="181.0" text="EMG">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="40.0" layoutY="46.0" prefHeight="36.0" prefWidth="358.0" text="Select the type of signal " textFill="#01069a">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="40.0" layoutY="154.0" prefHeight="36.0" prefWidth="358.0" text="MAC Address of Bitalino" textFill="#01069a">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="mac_Address" layoutX="125.0" layoutY="208.0" prefHeight="25.0" prefWidth="322.0" text="98:D3:51:FD:9C:72" />
+                              <Label layoutX="40.0" layoutY="249.0" prefHeight="36.0" prefWidth="358.0" text="Frequency" textFill="#01069a">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton fx:id="tenH" layoutX="106.0" layoutY="307.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="120.0" text="10 Hz" />
+                              <RadioButton fx:id="thousandH" layoutX="346.0" layoutY="307.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="120.0" text="1000 Hz" />
+                              <RadioButton fx:id="hundredH" layoutX="226.0" layoutY="307.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="120.0" text="100 Hz" />
+                           </children>
+                        </Pane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
