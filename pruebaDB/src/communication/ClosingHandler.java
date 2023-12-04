@@ -23,8 +23,8 @@ public class ClosingHandler implements Runnable {
 					serverRunning = false;
 					if (Server_Object_Threads.runningThreads == 0) {
 						Server_Object_Threads.closer();
-						try {
-							setSocket(new Socket("localhost", 9030));
+						/*try {
+							//setSocket(new Socket("localhost", 9004));
 							console.close();
 						} catch (UnknownHostException e) {
 							// TODO Auto-generated catch block
@@ -32,7 +32,7 @@ public class ClosingHandler implements Runnable {
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
-						}
+						}*/
 					} else {
 						System.out.println(
 								"There are clients connected to the server. Are you sure that you want to close the server? \n Type 1 to close, type 2 to cancel.");
@@ -62,6 +62,9 @@ public class ClosingHandler implements Runnable {
 		} catch (InputMismatchException ex) {
 			System.out.println("You should write a number");
 			Server_Object_Threads.start_ClosingHandler();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		} 
 	}
 

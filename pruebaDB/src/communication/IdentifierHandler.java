@@ -39,12 +39,12 @@ public class IdentifierHandler implements Runnable{
 			doS = new DataOutputStream(oS);
 			bR = new BufferedReader(new InputStreamReader(iS));
 			pW = new PrintWriter(oS);
-			//OoS = new ObjectOutputStream(oS);
 			Server_Object_Threads.loginElection(dbMana, s, iS, oS, diS, doS,bR,pW, OoS);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Server_Object_Threads.runningThreads--;
 	}
 
 }

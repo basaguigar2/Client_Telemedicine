@@ -26,7 +26,7 @@ import Objects.User;
 public class Server_Object_Threads {
 
 	private static Dbmanager dbMana = new Dbmanager();
-	private static ServerSocket sS = null;
+	public static ServerSocket sS = null;
 	private static Socket s = null;
 	public static Test t = new Test();
 	public static int runningThreads = 0;
@@ -47,11 +47,13 @@ public class Server_Object_Threads {
 				System.out.println("Conexion establecida");
 				IdentifierHandler iH = new IdentifierHandler(s);
 				new Thread(iH).start();
+				runningThreads++;
+				System.out.println(runningThreads);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("Error Servidor");
+			//e.printStackTrace();
+			System.out.println("Cerramos servidor");
 			System.exit(-1);
 		} finally {
 			releaseResourcesServer();
@@ -377,8 +379,9 @@ public class Server_Object_Threads {
 		}
 	}
 
-	public static void closer() {
+	public static void closer() throws IOException {
 		sC = true;
+		sS.close();
 	}
 
 	// No se porque el release resources da ese error. (cuando sepamos cmomo va el
