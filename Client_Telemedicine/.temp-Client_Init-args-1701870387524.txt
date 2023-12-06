@@ -1,0 +1,11 @@
+--module-path
+"\\path\\to\\javafx-sdk-21.0.1\\lib"
+--add-modules
+javafx.controls,javafx.fxml
+-Dfile.encoding=Cp1252
+-p
+"C:\\Users\\basag\\OneDrive\\Escritorio\\InhalApp\\javafx-sdk-19\\lib\\javafx.base.jar;C:\\Users\\basag\\OneDrive\\Escritorio\\InhalApp\\javafx-sdk-19\\lib\\javafx.controls.jar;C:\\Users\\basag\\OneDrive\\Escritorio\\InhalApp\\javafx-sdk-19\\lib\\javafx.fxml.jar;C:\\Users\\basag\\OneDrive\\Escritorio\\InhalApp\\javafx-sdk-19\\lib\\javafx.graphics.jar;C:\\Users\\basag\\OneDrive\\Escritorio\\InhalApp\\javafx-sdk-19\\lib\\javafx.media.jar;C:\\Users\\basag\\OneDrive\\Escritorio\\InhalApp\\javafx-sdk-19\\lib\\javafx.swing.jar;C:\\Users\\basag\\OneDrive\\Escritorio\\InhalApp\\javafx-sdk-19\\lib\\javafx.web.jar;C:\\Users\\basag\\OneDrive\\Escritorio\\InhalApp\\javafx-sdk-19\\lib\\javafx-swt.jar"
+-classpath
+"C:\\Users\\basag\\git\\Telemedicine\\Client_Telemedicine\\bin;C:\\Users\\basag\\Downloads\\javafx-sdk-21.0.1\\lib\\javafx-swt.jar;C:\\Users\\basag\\Downloads\\javafx-sdk-21.0.1\\lib\\javafx.base.jar;C:\\Users\\basag\\Downloads\\javafx-sdk-21.0.1\\lib\\javafx.controls.jar;C:\\Users\\basag\\Downloads\\javafx-sdk-21.0.1\\lib\\javafx.fxml.jar;C:\\Users\\basag\\Downloads\\javafx-sdk-21.0.1\\lib\\javafx.graphics.jar;C:\\Users\\basag\\Downloads\\javafx-sdk-21.0.1\\lib\\javafx.media.jar;C:\\Users\\basag\\Downloads\\javafx-sdk-21.0.1\\lib\\javafx.swing.jar;C:\\Users\\basag\\Downloads\\javafx-sdk-21.0.1\\lib\\javafx.web.jar;C:\\Users\\basag\\Downloads\\eclipse-committers-2022-03-R-win32-x86_64\\eclipse\\plugins\\org.eclipse.fx.ide.css.jfx8_3.8.0.202204150904.jar;C:\\Users\\basag\\OneDrive\\Escritorio\\bluecove-2.1.1-SNAPSHOT.jar;C:\\Users\\basag\\OneDrive\\Escritorio\\Telemedicine\\TelemedicineClient\\javax.persistence_2.1.1.v201509150925.jar;C:\\Users\\basag\\OneDrive\\Escritorio\\Telemedicine\\TelemedicineClient\\sqlite-jdbc-3.8.7.jar"
+-XX:+ShowCodeDetailsInExceptionMessages
+graphic.Client_Init

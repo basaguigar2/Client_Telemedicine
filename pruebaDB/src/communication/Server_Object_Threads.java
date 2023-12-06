@@ -38,7 +38,7 @@ public class Server_Object_Threads {
 
 		// Initiate the server waiting a connection
 		try {
-			sS = new ServerSocket(9018);
+			sS = new ServerSocket(9025);
 			dbMana.connect();
 			//dbMana.create2();
 			start_ClosingHandler();

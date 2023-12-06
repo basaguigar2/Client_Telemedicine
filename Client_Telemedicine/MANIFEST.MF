@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+Main-Class: C:\Users\basag\git\Telemedicine\Client_Telemedicine\src\graphic

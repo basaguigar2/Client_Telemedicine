@@ -33,7 +33,7 @@ public class Doctor_Object {
 	public void connection_client() {
 		//Initiate the client with all the resources that are necessary
 		try {
-			socket = new Socket("localhost", 9018);
+			socket = new Socket("localhost", 9025);
 			printWriter = new PrintWriter(socket.getOutputStream(), true);
 			outputStream = socket.getOutputStream();
 			buffer = new BufferedReader(new InputStreamReader(socket.getInputStream()));

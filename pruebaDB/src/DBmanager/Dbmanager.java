@@ -24,7 +24,7 @@ public class Dbmanager {
 		try {
 			// Open database connection
 			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:./db/Test6_DB.db");
+			c = DriverManager.getConnection("jdbc:sqlite:./pruebaDB/db/Test6_DB.db");
 			c.createStatement().execute("PRAGMA foreign_keys=ON");
 			System.out.println("Database connection opened.");
 		} catch (SQLException e) {

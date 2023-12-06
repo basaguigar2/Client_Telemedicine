@@ -28,7 +28,7 @@ public class Client_Object {
 
 	public void connection_client() {
 		try {
-			socket = new Socket("localhost", 9018);
+			socket = new Socket("localhost", 9025);
 			outputStream = socket.getOutputStream();
 			dataoutput = new DataOutputStream(outputStream);
 			input = socket.getInputStream();
