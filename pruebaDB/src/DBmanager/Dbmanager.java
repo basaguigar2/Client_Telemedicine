@@ -108,26 +108,6 @@ public class Dbmanager {
 		}
 	}
 
-	public Doctor searchDoctorbyName(String name) {
-		Doctor doc = null;
-		String sql = "SELECT * FROM doctor WHERE name LIKE ?";
-		try {
-			PreparedStatement prep = c.prepareStatement(sql);
-			prep.setString(1, name);
-			ResultSet rs = prep.executeQuery();
-			while (rs.next()) {
-				int id = rs.getInt("id");
-				String doctor_name = rs.getString("name");
-				doc = new Doctor(id, doctor_name);
-			}
-			rs.close();
-			prep.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return doc;
-	}
-
 	public Doctor searchDoctorbyId(int id) {
 		Doctor doc = null;
 		String sql = "SELECT * FROM doctor WHERE id LIKE ?";
@@ -160,7 +140,6 @@ public class Dbmanager {
 			prep.setInt(3, t.getFrequence());
 			prep.setString(4, t.getColumn());
 			prep.setInt(5, pat.getId());
-			// prep.setInt(6, pat.getDoctor().getId());
 			prep.executeUpdate();
 			prep.close();
 			System.out.println("Test info processed");
@@ -209,26 +188,6 @@ public class Dbmanager {
 			e.printStackTrace();
 		}
 		return cl;
-	}
-
-	public Doctor searchDoctorByName(String name) {
-		Doctor d = null;
-		String sql = "SELECT * FROM doctor WHERE name LIKE ?";
-		try {
-			PreparedStatement prep = c.prepareStatement(sql);
-			prep.setString(1, name);
-			ResultSet rs = prep.executeQuery();
-			while (rs.next()) {
-				int id = rs.getInt("id");
-				String doctor_name = rs.getString("name");
-				d = new Doctor(id, doctor_name);
-			}
-			rs.close();
-			prep.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return d;
 	}
 
 	public void test_patient(String nombre_cliente, Test test) {
@@ -480,7 +439,6 @@ public class Dbmanager {
 			e.printStackTrace();
 		}
 		return t;
-
 	}
 
 }

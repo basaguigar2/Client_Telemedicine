@@ -46,5 +46,6 @@ public class DoctorHandler implements Runnable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+		Server_Object_Threads.runningThreads--;
 	}
 }

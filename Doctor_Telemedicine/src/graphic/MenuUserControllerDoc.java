@@ -79,6 +79,7 @@ public class MenuUserControllerDoc implements Initializable {
 
 	@FXML
 	public void log_out(ActionEvent event) {
+		start_doc.send_election('i');
 		start_doc.releaseResources();
 		System.exit(0);
 	}

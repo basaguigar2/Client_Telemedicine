@@ -120,6 +120,7 @@ public class MenuUserController implements Initializable {
 
 	@FXML
 	public void log_out(ActionEvent event) {
+		start_cl.send_election('i');
 		start_cl.releaseResources();
 		System.exit(0);
 	}
@@ -185,11 +186,13 @@ public class MenuUserController implements Initializable {
 			}
 			t.setDate(Date.valueOf(LocalDate.now()));
 			t.setColumn(te);
+			if (t.getColumn().length() > 100) {
 			start_cl.send_election('g');
 			start_cl.send_column(t);
 			start_cl.send_election('f');
 			start_cl.send_test(cl.getName(), t);
 			tests.add(t);
+			}
 
 			try {
 				Parent root;

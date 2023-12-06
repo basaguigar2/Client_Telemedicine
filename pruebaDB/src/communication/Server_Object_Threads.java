@@ -38,7 +38,7 @@ public class Server_Object_Threads {
 
 		// Initiate the server waiting a connection
 		try {
-			sS = new ServerSocket(9004);
+			sS = new ServerSocket(9018);
 			dbMana.connect();
 			//dbMana.create2();
 			start_ClosingHandler();
@@ -48,11 +48,9 @@ public class Server_Object_Threads {
 				IdentifierHandler iH = new IdentifierHandler(s);
 				new Thread(iH).start();
 				runningThreads++;
-				System.out.println(runningThreads);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
 			System.out.println("Cerramos servidor");
 			System.exit(-1);
 		} finally {
@@ -66,14 +64,9 @@ public class Server_Object_Threads {
 		new Thread(cH).start();
 	}
 
-	public synchronized static void modifyNThreads(int n) {
-		Server_Object_Threads.runningThreads = Server_Object_Threads.runningThreads + n;
-	}
-
 	public static void loginElection(Dbmanager dbMana, Socket s, InputStream iS, OutputStream oS, DataInputStream diS,
 			DataOutputStream doS, BufferedReader bR, PrintWriter pW, ObjectOutputStream OoS) throws IOException {
 		int byteRead = -1;
-		System.out.println("Entra nuevo proceso");
 		bucle = false;
 		while (!bucle) {
 			try {
@@ -91,9 +84,6 @@ public class Server_Object_Threads {
 					case 'h':
 						confirmationLoginDoc(iS, oS, diS, doS, bR, pW, OoS);
 						break;
-					case 'i':
-						releaseResources(s, bR, pW, iS, oS, diS, doS);
-						break;
 					}
 				}
 			} catch (SocketException ex) {
@@ -106,10 +96,12 @@ public class Server_Object_Threads {
 	public static void clientElection(Dbmanager dbMana, Socket s, InputStream iS, OutputStream oS, DataInputStream diS,
 			DataOutputStream doS, BufferedReader bR, PrintWriter pW, ObjectOutputStream OoS) throws IOException {
 		int byteRead = -1;
-		while (true) {
+		boolean client_loop = false;
+		while (!client_loop) {
 			try {
 				byteRead = iS.read();
 				if (byteRead == -1 || byteRead == 'i') {
+					client_loop = true;
 					releaseResources(s, bR, pW, iS, oS, diS, doS);
 				} else {
 					switch (byteRead) {
@@ -125,9 +117,6 @@ public class Server_Object_Threads {
 					case 'j':
 						listTest(diS, doS, OoS, doS);
 						break;
-					case 'i':
-						releaseResources(s, bR, pW, iS, oS, diS, doS);
-						break;
 					}
 				}
 			} catch (SocketException ex) {
@@ -139,10 +128,12 @@ public class Server_Object_Threads {
 	public static void doctorElection(Dbmanager dbMana, Socket s, InputStream iS, OutputStream oS, DataInputStream diS,
 			DataOutputStream doS, BufferedReader bR, PrintWriter pW, ObjectOutputStream OoS) throws IOException {
 		int byteRead = -1;
-		while (true) {
+		boolean doctor_loop = false;
+		while (!doctor_loop) {
 			try {
 				byteRead = iS.read();
 				if (byteRead == -1 || byteRead == 'i') {
+					doctor_loop = true;
 					releaseResources(s, bR, pW, iS, oS, diS, doS);
 				} else {
 					switch (byteRead) {
@@ -155,9 +146,6 @@ public class Server_Object_Threads {
 					case 'p':
 						searchIDDoctor(bR, doS);
 						break;
-					case 'i':
-						releaseResources(s, bR, pW, iS, oS, diS, doS);
-						break;
 					}
 				}
 			} catch (SocketException ex) {
@@ -168,7 +156,6 @@ public class Server_Object_Threads {
 
 	public static void receiveRegister(DataInputStream diS, BufferedReader bR, DataOutputStream doS, InputStream iS) {
 		try {
-
 			int byteRead;
 			int i = 0;
 			int length = diS.readInt();
@@ -227,6 +214,7 @@ public class Server_Object_Threads {
 			doS.writeUTF(respuesta);
 			if (respuesta == "ok d") {
 				bucle = true;
+				runningThreads++;
 				DoctorHandler iH = new DoctorHandler(dbMana, s, iS, oS, diS, doS, bR, pW, OoS);
 				new Thread(iH).start();
 			}
@@ -253,6 +241,7 @@ public class Server_Object_Threads {
 			doS.writeUTF(respuesta);
 			if (respuesta == "ok c") {
 				bucle = true;
+				runningThreads++;
 				ClientHandler iH = new ClientHandler(dbMana, s, iS, oS, diS, doS, bR, pW, OoS);
 				new Thread(iH).start();
 			}
@@ -361,7 +350,6 @@ public class Server_Object_Threads {
 			System.out.println("Error recepcion Datos");
 			e.printStackTrace();
 		}
-		// releaseResources(dataInputStream, buferedReader, inputstream);
 	}
 
 	private static void receiveColumn(InputStream iS) {
@@ -384,8 +372,7 @@ public class Server_Object_Threads {
 		sS.close();
 	}
 
-	// No se porque el release resources da ese error. (cuando sepamos cmomo va el
-	// tema de sockets ver si hay que liberar aqui los sockets)
+	
 	public static void releaseResources(Socket s, BufferedReader bR, PrintWriter pW, InputStream iS, OutputStream oS,
 			DataInputStream diS, DataOutputStream doS) {
 		try {

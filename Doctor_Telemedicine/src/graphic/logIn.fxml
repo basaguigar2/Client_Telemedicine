@@ -26,7 +26,7 @@
          </image>
       </ImageView>
       <PasswordField fx:id="passwordlogin" layoutX="72.0" layoutY="175.0" prefHeight="25.0" prefWidth="181.0" promptText="Password" />
-      <Text fill="#0259a4" layoutX="50.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to InhalApp">
+      <Text fill="#0259a4" layoutX="50.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!">
          <font>
             <Font name="Arial Black" size="18.0" />
          </font>

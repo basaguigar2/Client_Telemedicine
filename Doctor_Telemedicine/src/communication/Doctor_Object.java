@@ -33,7 +33,7 @@ public class Doctor_Object {
 	public void connection_client() {
 		//Initiate the client with all the resources that are necessary
 		try {
-			socket = new Socket("localhost", 9004);
+			socket = new Socket("localhost", 9018);
 			printWriter = new PrintWriter(socket.getOutputStream(), true);
 			outputStream = socket.getOutputStream();
 			buffer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -128,7 +128,6 @@ public class Doctor_Object {
 			int listSize = datainput.readInt();
 			for (int i = 0; i < listSize; i++) {
 				Client receivedcl = receiveClientObject();
-				System.out.println(receivedcl);
 				receivedList.add(receivedcl);
 			}
 		} catch (IOException e) {
@@ -189,7 +188,6 @@ public class Doctor_Object {
 	public static byte[] create_hash(String m) {
 		MessageDigest md;
 		try {
-			System.out.println(m);
 			md = MessageDigest.getInstance("MD5");
 			md.update(m.getBytes());
 			byte[] hash = md.digest();

@@ -12,8 +12,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="lib" path="/TelemedicineClient/javax.persistence_2.1.1.v201509150925.jar"/>
-	<classpathentry kind="lib" path="/TelemedicineClient/sqlite-jdbc-3.8.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/basag/OneDrive/Escritorio/bluecove-2.1.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/basag/OneDrive/Escritorio/Telemedicine/TelemedicineClient/javax.persistence_2.1.1.v201509150925.jar"/>
+	<classpathentry kind="lib" path="C:/Users/basag/OneDrive/Escritorio/Telemedicine/TelemedicineClient/sqlite-jdbc-3.8.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -23,16 +23,6 @@ public class ClosingHandler implements Runnable {
 					serverRunning = false;
 					if (Server_Object_Threads.runningThreads == 0) {
 						Server_Object_Threads.closer();
-						/*try {
-							//setSocket(new Socket("localhost", 9004));
-							console.close();
-						} catch (UnknownHostException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}*/
 					} else {
 						System.out.println(
 								"There are clients connected to the server. Are you sure that you want to close the server? \n Type 1 to close, type 2 to cancel.");

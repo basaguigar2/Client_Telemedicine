@@ -28,7 +28,7 @@ public class Client_Object {
 
 	public void connection_client() {
 		try {
-			socket = new Socket("localhost", 9004);
+			socket = new Socket("localhost", 9018);
 			outputStream = socket.getOutputStream();
 			dataoutput = new DataOutputStream(outputStream);
 			input = socket.getInputStream();
@@ -36,7 +36,7 @@ public class Client_Object {
 			printWriter = new PrintWriter(socket.getOutputStream(), true);
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
-			System.exit(-1);
+			System.exit(0);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -46,7 +46,6 @@ public class Client_Object {
 		try {
 			outputStream.write(byteSend);
 			outputStream.flush();
-
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,11 +57,11 @@ public class Client_Object {
 		// These data will be stored in their corresponding tables
 		String m = null;
 		try {
-			
-			byte [] byteArray = create_hash(u.getPassword());
+
+			byte[] byteArray = create_hash(u.getPassword());
 			dataoutput.writeInt(byteArray.length);
 			int character = 0;
-			while (character < byteArray.length-1) {
+			while (character < byteArray.length - 1) {
 				outputStream.write(byteArray[character]);
 				outputStream.flush();
 				character++;
@@ -81,10 +80,10 @@ public class Client_Object {
 	public String send_login(String e, String p) {
 		// Send email and password looking for a confirmation if the data is correct
 		try {
-			byte [] byteArray = create_hash(p);
+			byte[] byteArray = create_hash(p);
 			dataoutput.writeInt(byteArray.length);
 			int character = 0;
-			while (character < byteArray.length-1) {
+			while (character < byteArray.length - 1) {
 				outputStream.write(byteArray[character]);
 				outputStream.flush();
 				character++;
@@ -198,7 +197,6 @@ public class Client_Object {
 	public static byte[] create_hash(String m) {
 		MessageDigest md;
 		try {
-			System.out.println(m);
 			md = MessageDigest.getInstance("MD5");
 			md.update(m.getBytes());
 			byte[] hash = md.digest();
