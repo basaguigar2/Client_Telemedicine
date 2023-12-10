@@ -31,7 +31,7 @@ public class Dbmanager {
 			e.printStackTrace();
 			System.out.println("Error, database exception.");
 		} catch (Exception e) {
-			System.out.println("Error, couldn't connect to data based.");
+			System.out.println("Error, couldn't connect to database.");
 			e.printStackTrace();
 		}
 	}
