@@ -66,7 +66,7 @@ public class Dbmanager {
 		try {
 			// Close database connection
 			c.close();
-			System.out.println("Database connection close");
+			System.out.println("Database connection closed");
 		} catch (SQLException e) {
 			System.out.println("There was a problem while closing the database connection.");
 			e.printStackTrace();
@@ -92,7 +92,7 @@ public class Dbmanager {
 
 	}
 
-	public void addDoctor(Doctor d) { // Hay que modificar para cuando se haga el doctor
+	public void addDoctor(Doctor d) { 
 		PreparedStatement prep;
 		User u = d.getUser();
 		try {
